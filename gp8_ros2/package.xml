@@ -3,11 +3,13 @@
 <package format="3">
   <name>gp8_ros2</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>GP8 Six-Axis High-Speed Assembly and Handling Robot by Yaskawa</description>
   <maintainer email="cchew3103@gmail.com">calvin_chew</maintainer>
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>gp8_description</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
