@@ -50,4 +50,4 @@ arm_controller:
  
     # Allow non-zero velocity at the end of the trajectory
     allow_nonzero_velocity_at_trajectory_end: true
- 
+
