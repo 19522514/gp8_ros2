@@ -1,6 +1,17 @@
 <?xml version="1.0" ?>
 
 <robot name="motoman_gp8" xmlns:xacro="http://ros.org/wiki/xacro">
-    <xacro:include filename="$(find gp8_description)/urdf/robots/gp8_macro.xacro" />
+    <xacro:include filename="$(find gp8_description)/urdf/mech/gp8_macro.xacro" />
     <xacro:motoman_gp8 prefix=""/>
+
+    <xacro:include filename="$(find gp8_description)/urdf/control/gazebo_sim_ros2_control.urdf.xacro" />
+    <xacro:load_gazebo_sim_ros2_control_plugin
+        robot_name="$(arg robot_name)"
+        use_gazebo="$(arg use_gazebo)"/>
+ 
+    <xacro:include filename="$(find gp8_description)/urdf/control/gp8_ros2_control.urdf.xacro" />
+    <xacro:mycobot_ros2_control
+        prefix="$(arg prefix)"
+        use_gazebo="$(arg use_gazebo)"/>
+
 </robot>

@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+ 
+    <xacro:macro name="gp8_ros2_control" params="prefix use_gazebo">
+        <ros2_control name="RobotSystem" type="system">
+            <hardware>
+                <xacro:if value="${use_gazebo}">
+                    <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+                </xacro:if>
+            </hardware>
+ 
+            <joint name="${prefix}joint_1_s">
+                <command_interface name="position">
+                    <param name="min">${radians(-170)}</param>
+                    <param name="max">${radians(170)}</param>
+                </command_interface>
+                <state_interface name="position"/>
+            </joint>
+ 
+            <joint name="${prefix}joint_2_l">
+                <command_interface name="position">
+                    <param name="min">${radians(-65)}</param>
+                    <param name="max">${radians(145)}</param>
+                </command_interface>
+                <state_interface name="position"/>
+            </joint>
+ 
+            <joint name="${prefix}joint_3_u">
+                <command_interface name="position">
+                    <param name="min">${radians(-70)}</param>
+                    <param name="max">${radians(190)}</param>
+                </command_interface>
+                <state_interface name="position"/>
+            </joint>
+ 
+            <joint name="${prefix}joint_4_r">
+                <command_interface name="position">
+                    <param name="min">${radians(-190)}</param>
+                    <param name="max">${radians(190)}</param>
+                </command_interface>
+                <state_interface name="position"/>
+            </joint>
+ 
+            <joint name="${prefix}joint_5_b">
+                <command_interface name="position">
+                    <param name="min">${radians(-135)}</param>
+                    <param name="max">${radians(135)}</param>
+                </command_interface>
+                <state_interface name="position"/>
+            </joint>
+ 
+            <joint name="${prefix}joint_6_t">
+                <command_interface name="position">
+                    <param name="min">${radians(-360)}</param>
+                    <param name="max">${radians(360)}</param>
+                </command_interface>
+                <state_interface name="position"/>
+            </joint>
+ 
+        </ros2_control>
+    </xacro:macro>
+ 
+</robot>

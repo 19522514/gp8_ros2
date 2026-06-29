@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 """
-Launch RViz visualization for the mycobot robot.
+Launch RViz visualization for the gp8 robot.
 
-This launch file sets up the complete visualization environment for the mycobot robot,
+This launch file sets up the complete visualization environment for the gp8 robot,
 including robot state publisher, joint state publisher, and RViz2. It handles loading
 and processing of URDF/XACRO files and controller configurations.
 
-:author: Addison Sears-Collins
-:date: November 15, 2024
 """
 import os
 from pathlib import Path
@@ -44,12 +42,12 @@ def process_ros2_controllers_config(context):
     # Define both source and install paths
     src_config_path = os.path.join(
         home,
-        'ros2_ws/src/mycobot_ros2/mycobot_moveit_config/config',
+        'ros2_ws/src/gp8_ros2/gp8_moveit_config/config',
         robot_name
     )
     install_config_path = os.path.join(
         home,
-        'ros2_ws/install/mycobot_moveit_config/share/mycobot_moveit_config/config',
+        'ros2_ws/install/gp8_moveit_config/share/gp8_moveit_config/config',
         robot_name
     )
 
@@ -85,9 +83,9 @@ ARGUMENTS = [
                           description='Name of the base link'),
     DeclareLaunchArgument('base_type', default_value='g_shape',
                           description='Type of the base'),
-    DeclareLaunchArgument('flange_link', default_value='link6_flange',
+    DeclareLaunchArgument('flange_link', default_value='flange',
                           description='Name of the flange link'),
-    DeclareLaunchArgument('gripper_type', default_value='adaptive_gripper',
+    DeclareLaunchArgument('gripper_type', default_value='none',
                           description='Type of the gripper'),
     DeclareLaunchArgument('use_camera', default_value='false',
                           choices=['true', 'false'],
@@ -95,17 +93,17 @@ ARGUMENTS = [
     DeclareLaunchArgument('use_gazebo', default_value='false',
                           choices=['true', 'false'],
                           description='Whether to use Gazebo simulation'),
-    DeclareLaunchArgument('use_gripper', default_value='true',
+    DeclareLaunchArgument('use_gripper', default_value='false',
                           choices=['true', 'false'],
                           description='Whether to attach a gripper')
 ]
 
 
 def generate_launch_description():
-    """Generate the launch description for the mycobot robot visualization.
+    """Generate the launch description for the gp8 robot visualization.
 
     This function sets up all necessary nodes and parameters for visualizing
-    the mycobot robot in RViz, including:
+    the gp8 robot in RViz, including:
     - Robot state publisher for broadcasting transforms
     - Joint state publisher for simulating joint movements
     - RViz for visualization
@@ -219,7 +217,7 @@ def generate_launch_description():
     ld = LaunchDescription(ARGUMENTS)
 
     # Process the controller configuration before starting nodes
-    #ld.add_action(OpaqueFunction(function=process_ros2_controllers_config))
+    ld.add_action(OpaqueFunction(function=process_ros2_controllers_config))
 
     # Declare the launch options
     ld.add_action(declare_jsp_gui_cmd)
