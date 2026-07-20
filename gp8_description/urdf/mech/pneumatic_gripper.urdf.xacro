@@ -164,6 +164,10 @@
         link="${prefix}gripper_left" />
       <axis
         xyz="1 0 0" />
+      <mimic 
+        joint="${prefix}gripper_base_to_${prefix}gripper_right"
+        multiplier="1.0"
+        offset="0.0" />
       <limit
         lower="0"
         upper="0.032"
