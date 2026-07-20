@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: gp8_description
+    relative_path: urdf/robots/gp8.xacro
+  SRDF:
+    relative_path: config/gp8/gp8.srdf.xacro
+  CONFIG:
+    author_name: CalvinChew
+    author_email: cchew3103@gmail.com
+    generated_timestamp: 1734048000

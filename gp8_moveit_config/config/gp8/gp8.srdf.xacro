@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="motoman_gp8" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:arg name="prefix" default=""/>
+
+  <xacro:include filename="$(find gp8_moveit_config)/config/gp8/gp8_macro.srdf.xacro" />
+  <xacro:gp8_srdf prefix="$(arg prefix)"/>
+
+</robot>

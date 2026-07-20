@@ -34,7 +34,7 @@ def process_ros2_controllers_config(context):
 
     # Get the configuration values
     prefix = LaunchConfiguration('prefix').perform(context)
-    flange_link = LaunchConfiguration('flange_link').perform(context)
+    tool_link = LaunchConfiguration('tool_link').perform(context)
     robot_name = LaunchConfiguration('robot_name').perform(context)
 
     home = str(Path.home())
@@ -58,7 +58,7 @@ def process_ros2_controllers_config(context):
 
     # Create processed content (leaving template untouched)
     processed_content = template_content.replace('${prefix}', prefix)
-    processed_content = processed_content.replace('${flange_link}', flange_link)
+    processed_content = processed_content.replace('${tool_link}', tool_link)
 
     # Write processed content to both source and install directories
     for config_path in [src_config_path, install_config_path]:
@@ -83,9 +83,9 @@ ARGUMENTS = [
                           description='Name of the base link'),
     DeclareLaunchArgument('base_type', default_value='g_shape',
                           description='Type of the base'),
-    DeclareLaunchArgument('flange_link', default_value='flange',
-                          description='Name of the flange link'),
-    DeclareLaunchArgument('gripper_type', default_value='none',
+    DeclareLaunchArgument('tool_link', default_value='tool0',
+                          description='Name of the tool link'),
+    DeclareLaunchArgument('gripper_type', default_value='pneumatic_gripper',
                           description='Type of the gripper'),
     DeclareLaunchArgument('use_camera', default_value='false',
                           choices=['true', 'false'],
@@ -93,7 +93,7 @@ ARGUMENTS = [
     DeclareLaunchArgument('use_gazebo', default_value='false',
                           choices=['true', 'false'],
                           description='Whether to use Gazebo simulation'),
-    DeclareLaunchArgument('use_gripper', default_value='false',
+    DeclareLaunchArgument('use_gripper', default_value='true',
                           choices=['true', 'false'],
                           description='Whether to attach a gripper')
 ]
@@ -171,7 +171,7 @@ def generate_launch_description():
         'add_world:=', LaunchConfiguration('add_world'), ' ',
         'base_link:=', LaunchConfiguration('base_link'), ' ',
         'base_type:=', LaunchConfiguration('base_type'), ' ',
-        'flange_link:=', LaunchConfiguration('flange_link'), ' ',
+        'tool_link:=', LaunchConfiguration('tool_link'), ' ',
         'gripper_type:=', LaunchConfiguration('gripper_type'), ' ',
         'use_camera:=', LaunchConfiguration('use_camera'), ' ',
         'use_gazebo:=', LaunchConfiguration('use_gazebo'), ' ',

@@ -7,11 +7,11 @@
     <xacro:arg name="add_world" default="true" />
     <xacro:arg name="base_link" default="base_link" />
     <xacro:arg name="base_type" default="g_shape" />
-    <xacro:arg name="flange_link" default="flange" />
-    <xacro:arg name="gripper_type" default="none" />
+    <xacro:arg name="tool_link" default="tool0" />
+    <xacro:arg name="gripper_type" default="pneumatic_gripper" />
     <xacro:arg name="use_camera" default="false" />
     <xacro:arg name="use_gazebo" default="false" />
-    <xacro:arg name="use_gripper" default="false" />
+    <xacro:arg name="use_gripper" default="true" />
 
     <xacro:if value="$(arg add_world)">
       <link name="world"/>
@@ -24,6 +24,18 @@
 
     <xacro:include filename="$(find gp8_description)/urdf/mech/gp8_macro.xacro" />
     <xacro:motoman_gp8 prefix="$(arg prefix)"/>
+
+    <xacro:if value="$(arg use_gripper)">
+        <xacro:property name="current_gripper" value="$(arg gripper_type)"/>
+        <xacro:if value="${current_gripper == 'pneumatic_gripper'}">
+            <xacro:include filename="$(find gp8_description)/urdf/mech/pneumatic_gripper.urdf.xacro"/>
+            <xacro:pneumatic_gripper
+                parent="$(arg tool_link)"
+                prefix="$(arg prefix)">
+                <origin xyz="-0.005 0 0.04" rpy="${radians(90)} 0 ${radians(90)}"/>
+            </xacro:pneumatic_gripper>
+        </xacro:if>
+    </xacro:if>
 
     <xacro:include filename="$(find gp8_description)/urdf/control/gazebo_sim_ros2_control.urdf.xacro" />
     <xacro:load_gazebo_sim_ros2_control_plugin

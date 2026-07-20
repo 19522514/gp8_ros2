@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="pneumatic_gripper" params="parent prefix *origin">
+
+    
+    <link
+      name="${prefix}gripper_base">
+      <inertial>
+        <origin
+          xyz="-0.00026414 0.0040551 0.011053"
+          rpy="0 0 0" />
+        <mass
+          value="0.23678" />
+        <inertia
+          ixx="6.0742E-05"
+          ixy="6.0324E-08"
+          ixz="2.4651E-08"
+          iyy="0.00030564"
+          iyz="2.6799E-08"
+          izz="0.00034723" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="file://$(find gp8_description)/meshes/pneumatic_gripper/gripper_base.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.93333 0.81176 0.83529 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="file://$(find gp8_description)/meshes/pneumatic_gripper/gripper_base.STL" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}${parent}_to_${prefix}gripper_base" type="fixed">
+      <parent link="${prefix}${parent}"/>
+      <child link="${prefix}gripper_base"/>
+      <xacro:insert_block name="origin"/>
+    </joint>
+
+    <link
+      name="${prefix}gripper_right">
+      <inertial>
+        <origin
+          xyz="0.098823 0.0028825 -0.016983"
+          rpy="0 0 0" />
+        <mass
+          value="0.020907" />
+        <inertia
+          ixx="4.1469E-06"
+          ixy="7.8963E-15"
+          ixz="-1.2806E-06"
+          iyy="5.7138E-06"
+          iyz="-4.251E-16"
+          izz="3.7349E-06" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="file://$(find gp8_description)/meshes/pneumatic_gripper/gripper_right.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="file://$(find gp8_description)/meshes/pneumatic_gripper/gripper_right.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="${prefix}gripper_base_to_${prefix}gripper_right"
+      type="prismatic">
+      <origin
+        xyz="-0.051134 0.0085241 0.0011135"
+        rpy="1.5708 0 0" />
+      <parent
+        link="${prefix}gripper_base" />
+      <child
+        link="${prefix}gripper_right" />
+      <axis
+        xyz="-1 0 0" />
+      <limit
+        lower="0"
+        upper="0.032"
+        effort="5"
+        velocity="0.2" />
+      <dynamics
+        damping="0"
+        friction="0" />
+    </joint>
+    <link
+      name="${prefix}gripper_left">
+      <inertial>
+        <origin
+          xyz="0.0030444 0.0028825 -0.016983"
+          rpy="0 0 0" />
+        <mass
+          value="0.020907" />
+        <inertia
+          ixx="4.1469E-06"
+          ixy="7.8963E-15"
+          ixz="1.2806E-06"
+          iyy="5.7138E-06"
+          iyz="4.251E-16"
+          izz="3.7349E-06" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="file://$(find gp8_description)/meshes/pneumatic_gripper/gripper_left.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="file://$(find gp8_description)/meshes/pneumatic_gripper/gripper_left.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="${prefix}gripper_base_to_${prefix}gripper_left"
+      type="prismatic">
+      <origin
+        xyz="-0.051134 0.0085241 0.0011135"
+        rpy="1.5708 0 0" />
+      <parent
+        link="${prefix}gripper_base" />
+      <child
+        link="${prefix}gripper_left" />
+      <axis
+        xyz="1 0 0" />
+      <limit
+        lower="0"
+        upper="0.032"
+        effort="5"
+        velocity="0.2" />
+      <dynamics
+        damping="0"
+        friction="0" />
+    </joint>
+  </xacro:macro>
+</robot>
