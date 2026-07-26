@@ -17,6 +17,7 @@ install (
 # Install Python executables
 install (PROGRAMS
 scripts/arm_loop_controller.py
+scripts/arm_gripper_loop_controller.py
 DESTINATION lib/${PROJECT_NAME}
 )
 

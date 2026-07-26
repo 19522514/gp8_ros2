@@ -106,8 +106,8 @@
       <limit
         lower="0"
         upper="0.032"
-        effort="5"
-        velocity="0.2" />
+        effort="100.0"
+        velocity="1.0" />
       <dynamics
         damping="0"
         friction="0" />
@@ -171,8 +171,8 @@
       <limit
         lower="0"
         upper="0.032"
-        effort="5"
-        velocity="0.2" />
+        effort="100.0"
+        velocity="1.0" />
       <dynamics
         damping="0"
         friction="0" />

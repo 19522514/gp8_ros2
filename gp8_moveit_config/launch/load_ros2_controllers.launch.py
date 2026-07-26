@@ -8,10 +8,12 @@ for operating the robotic arm and gripper in a specific sequence.
 Launched Controllers:
     1. Joint State Broadcaster: Publishes joint states to /joint_states
     2. Arm Controller: Controls the robot arm movements via /follow_joint_trajectory
+    3. Gripper Action Controller: Controls gripper actions via /gripper_action
  
 Launch Sequence:
     1. Joint State Broadcaster
     2. Arm Controller (starts after Joint State Broadcaster)
+    3. Gripper Action Controller (starts after Arm Controller)
  
 """
  
@@ -31,6 +33,12 @@ def generate_launch_description():
         cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
              'arm_controller'],
         output='screen')
+
+    # Start gripper action controller
+    start_gripper_action_controller_cmd = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
+             'gripper_action_controller'],
+        output='screen')
  
  
     # Launch joint state broadcaster
@@ -45,6 +53,13 @@ def generate_launch_description():
         event_handler=OnProcessExit(
             target_action=start_joint_state_broadcaster_cmd,
             on_exit=[start_arm_controller_cmd]))
+
+    # Launch the arm controller after launching the joint state broadcaster
+    load_arm_controller_cmd = RegisterEventHandler(
+        event_handler=OnProcessExit(
+            target_action=start_arm_controller_cmd,
+            on_exit=[start_gripper_action_controller_cmd]))
+
  
 
  
@@ -54,5 +69,6 @@ def generate_launch_description():
     # Add the actions to the launch description in sequence
     ld.add_action(start_joint_state_broadcaster_cmd)
     ld.add_action(load_joint_state_broadcaster_cmd)
+    ld.add_action(load_arm_controller_cmd)
  
     return ld

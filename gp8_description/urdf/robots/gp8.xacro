@@ -30,7 +30,7 @@
         <xacro:if value="${current_gripper == 'pneumatic_gripper'}">
             <xacro:include filename="$(find gp8_description)/urdf/mech/pneumatic_gripper.urdf.xacro"/>
             <xacro:pneumatic_gripper
-                parent="$(arg tool_link)"
+                parent="$(arg prefix)$(arg tool_link)"
                 prefix="$(arg prefix)">
                 <origin xyz="-0.005 0 0.04" rpy="${radians(90)} 0 ${radians(90)}"/>
             </xacro:pneumatic_gripper>

@@ -57,24 +57,18 @@
                 <state_interface name="position"/>
             </joint>
 
-            <joint name="${prefix}gripper_controller">
+            <joint name="${prefix}gripper_base_to_${prefix}gripper_right">
                 <command_interface name="position">
                     <param name="min">0</param>
                     <param name="max">0.032</param>
                 </command_interface>
                 <state_interface name="position"/>
+                <state_interface name="velocity"/>
             </joint>
 
-            <joint name="${prefix}gripper_base_to_${prefix}gripper_right">
-                <param name="mimic">gripper_controller</param>
-                <param name="multiplier">1.0</param>
+            <joint name="${prefix}gripper_base_to_${prefix}gripper_left" mimic="true" mimic_joint="${prefix}gripper_base_to_${prefix}gripper_right" multiplier="1.0">
                 <state_interface name="position"/>
-            </joint>
-
-            <joint name="${prefix}gripper_base_to_${prefix}gripper_left">
-                <param name="mimic">gripper_controller</param>
-                <param name="multiplier">1.0</param>
-                <state_interface name="position"/>
+                <state_interface name="velocity"/>
             </joint>
  
         </ros2_control>
