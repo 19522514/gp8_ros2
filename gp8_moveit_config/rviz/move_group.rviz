@@ -73,67 +73,47 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_left1:
+          gripper_right:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_left2:
+          gripper_left:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_left3:
+          link_1_s:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_right1:
+          link_2_l:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_right2:
+          link_3_u:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_right3:
+          link_4_r:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link1:
+          link_5_b:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link2:
+          link_6_t:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link3:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link4:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link5:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link6:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link6_flange:
+          tool0:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -166,67 +146,47 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        gripper_left1:
+        gripper_right:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        gripper_left2:
+        gripper_left:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        gripper_left3:
+        link_1_s:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        gripper_right1:
+        link_2_l:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        gripper_right2:
+        link_3_u:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        gripper_right3:
+        link_4_r:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link1:
+        link_5_b:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link2:
+        link_6_t:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link5:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link6:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link6_flange:
+        tool0:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -289,67 +249,47 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_left1:
+          gripper_right:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_left2:
+          gripper_left:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_left3:
+          link_1_s:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_right1:
+          link_2_l:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_right2:
+          link_3_u:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_right3:
+          link_4_r:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link1:
+          link_5_b:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link2:
+          link_6_t:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link3:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link4:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link5:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link6:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link6_flange:
+          tool0:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -414,67 +354,47 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_left1:
+          gripper_right:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_left2:
+          gripper_left:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_left3:
+          link_1_s:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_right1:
+          link_2_l:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_right2:
+          link_3_u:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_right3:
+          link_4_r:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link1:
+          link_5_b:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link2:
+          link_6_t:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link3:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link4:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link5:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link6:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link6_flange:
+          tool0:
             Alpha: 1
             Show Axes: false
             Show Trail: false

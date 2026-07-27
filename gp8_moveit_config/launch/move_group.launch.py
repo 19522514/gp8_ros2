@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 """
-Launch MoveIt 2 for the myCobot robotic arm.
+Launch MoveIt 2 for the GP8 robotic arm.
 
 This script creates a ROS 2 launch file that starts the necessary nodes and services
-for controlling a myCobot robotic arm using MoveIt 2. It loads configuration files,
+for controlling a GP8 robotic arm using MoveIt 2. It loads configuration files,
 starts the move_group node, and optionally launches RViz for visualization.
 
-:author: Addison Sears-Collins
-:date: December 13, 2024
 """
 
 import os
@@ -24,17 +22,17 @@ from moveit_configs_utils import MoveItConfigsBuilder
 
 def generate_launch_description():
     """
-    Generate a launch description for MoveIt 2 with myCobot robot.
+    Generate a launch description for MoveIt 2 with GP8 robot.
 
     This function sets up the necessary configuration and nodes to launch MoveIt 2
-    for controlling a myCobot robotic arm. It includes setting up paths to config files,
+    for controlling a GP8 robotic arm. It includes setting up paths to config files,
     declaring launch arguments, configuring the move_group node, and optionally starting RViz.
 
     Returns:
         LaunchDescription: A complete launch description for the MoveIt 2 system
     """
     # Constants for paths to different files and folders
-    package_name_moveit_config = 'mycobot_moveit_config'
+    package_name_moveit_config = 'gp8_moveit_config'
 
     # Launch configuration variables
     use_sim_time = LaunchConfiguration('use_sim_time')
@@ -48,7 +46,7 @@ def generate_launch_description():
     # Declare the launch arguments
     declare_robot_name_cmd = DeclareLaunchArgument(
         name='robot_name',
-        default_value='mycobot_280',
+        default_value='gp8',
         description='Name of the robot to use')
 
     declare_use_sim_time_cmd = DeclareLaunchArgument(
@@ -87,7 +85,7 @@ def generate_launch_description():
         joint_limits_file_path = os.path.join(config_path, 'joint_limits.yaml')
         kinematics_file_path = os.path.join(config_path, 'kinematics.yaml')
         moveit_controllers_file_path = os.path.join(config_path, 'moveit_controllers.yaml')
-        srdf_model_path = os.path.join(config_path, f'{robot_name_str}.srdf')
+        srdf_model_path = os.path.join(config_path, f'{robot_name_str}.srdf.xacro')
         pilz_cartesian_limits_file_path = os.path.join(config_path, 'pilz_cartesian_limits.yaml')
 
         # Create MoveIt configuration

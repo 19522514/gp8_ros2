@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
     <xacro:macro name="gp8_srdf" params="prefix" >
 
-        <group name="gp8_arm">
+        <group name="arm">
             <joint name="$(arg prefix)virtual_joint"/>
             <joint name="$(arg prefix)joint_1_s"/>
             <joint name="$(arg prefix)joint_2_l"/>
@@ -12,7 +12,18 @@
             <joint name="$(arg prefix)joint_6_t"/>
         </group>
 
-        <group_state name="home" group="gp8_arm">
+        <group name="gripper">
+            <joint name="${prefix}gripper_base_to_${prefix}gripper_right"/>
+        </group>
+
+        <group name="arm_with_gripper">
+            <group name="arm" />
+            <group name="gripper" />
+        </group>
+
+        <end_effector name="gripper" parent_link="tool0" group="gripper"/>
+
+        <group_state name="home" group="arm">
             <joint name="$(arg prefix)joint_1_s" value="0"/>
             <joint name="$(arg prefix)joint_2_l" value="0"/>
             <joint name="$(arg prefix)joint_3_u" value="0"/>
@@ -21,12 +32,31 @@
             <joint name="$(arg prefix)joint_6_t" value="0"/>
         </group_state>
 
+        <group_state name="open" group="gripper">
+            <joint name="${prefix}gripper_base_to_${prefix}gripper_right" value="0.0"/>
+        </group_state>
+
+        <group_state name="closed" group="gripper">
+            <joint name="${prefix}gripper_base_to_${prefix}gripper_right" value="0.032"/>
+        </group_state>
+
         <disable_collisions link1="${prefix}base_link" link2="${prefix}link_1_s" reason="Adjacent"/>
         <disable_collisions link1="${prefix}link_1_s" link2="${prefix}link_2_l" reason="Adjacent"/>
         <disable_collisions link1="${prefix}link_2_l" link2="${prefix}link_3_u" reason="Adjacent"/>
         <disable_collisions link1="${prefix}link_3_u" link2="${prefix}link_4_r" reason="Adjacent"/>
         <disable_collisions link1="${prefix}link_4_r" link2="${prefix}link_5_b" reason="Adjacent"/>
         <disable_collisions link1="${prefix}link_5_b" link2="${prefix}link_6_t" reason="Adjacent"/>
+        
+        <disable_collisions link1="${prefix}link_6_t" link2="${prefix}gripper_base" reason="Never"/>
+        <disable_collisions link1="${prefix}link_6_t" link2="${prefix}gripper_right" reason="Never"/>
+        <disable_collisions link1="${prefix}link_6_t" link2="${prefix}gripper_left" reason="Never"/>
+        
+        <disable_collisions link1="${prefix}tool0" link2="${prefix}gripper_base" reason="Never"/>
+        <disable_collisions link1="${prefix}tool0" link2="${prefix}gripper_right" reason="Never"/>
+        <disable_collisions link1="${prefix}tool0" link2="${prefix}gripper_left" reason="Never"/>
+
+        <disable_collisions link1="${prefix}gripper_base" link2="${prefix}gripper_right" reason="Adjacent"/>
+        <disable_collisions link1="${prefix}gripper_base" link2="${prefix}gripper_left" reason="Adjacent"/>
 
     </xacro:macro>
 </robot>
