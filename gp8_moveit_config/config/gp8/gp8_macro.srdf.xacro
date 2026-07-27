@@ -37,7 +37,7 @@
         </group_state>
 
         <group_state name="closed" group="gripper">
-            <joint name="${prefix}gripper_base_to_${prefix}gripper_right" value="0.032"/>
+            <joint name="${prefix}gripper_base_to_${prefix}gripper_right" value="0.031"/>
         </group_state>
 
         <disable_collisions link1="${prefix}base_link" link2="${prefix}link_1_s" reason="Adjacent"/>
